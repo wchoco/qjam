@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="vaqm",
+    name="qjam",
     version="0.0.1",
     description="UGE qsub command wrapper",
     author="riku.okajima",
@@ -9,5 +9,5 @@ setup(
     license="MIT",
     package_dir={"": "src"},
     packages=find_packages("src"),
-    entry_points={"console_scripts": ["vaqm = vaqm.vaqm:main"]}
+    entry_points={"console_scripts": ["qjam = qjam.qjam:main"]}
 )

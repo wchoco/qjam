@@ -8,7 +8,7 @@ __date__ = "2018-06-04"
 import argparse
 import pathlib
 from typing import List
-from vaqm.q_util import (
+from qjam.q_util import (
     aquire_script_path,
     create_file,
     escape_string,

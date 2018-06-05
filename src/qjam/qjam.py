@@ -8,14 +8,14 @@ __date__ = "2018-05-31"
 
 import argparse
 from typing import List, Optional
-from vaqm import q_array, q_clean, q_sub
+from qjam import q_array, q_clean, q_sub
 
 
 def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
     """
     get arguments from command line
     """
-    parser = argparse.ArgumentParser(description=__doc__, prog="vaqm")
+    parser = argparse.ArgumentParser(description=__doc__, prog="qjam")
     # general arguments
     parser.add_argument(
         "-p", "--path",
