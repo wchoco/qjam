@@ -178,10 +178,11 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
     return args, parser
 
 
-def main(args: argparse.Namespace, parser: argparse.ArgumentParser):
+def main():
     """
     main function
     """
+    args, parser = get_args()
     if "func" in args:
         args.func(args)
     else:
@@ -189,4 +190,4 @@ def main(args: argparse.Namespace, parser: argparse.ArgumentParser):
 
 
 if __name__ == "__main__":
-    main(*get_args())
+    main()
