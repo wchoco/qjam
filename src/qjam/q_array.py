@@ -58,6 +58,11 @@ def main(args: argparse.Namespace):
     main function
     """
     targets = gather_targets(args.glob, args.dir)
+
+    if args.command is None:
+        print("\n".join(targets))
+        return
+
     target_list = manage_targets(targets)
 
     if args.name is None:
