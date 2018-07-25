@@ -32,7 +32,7 @@ def create_script(path: str, command: List[str],
     ])
 
     for m in command:
-        script.append(escape_string(m.replace("${}", "${seq_lib}")))
+        script.append(escape_string(m.replace("{}", "${seq_lib}")))
     create_file(path, script)
 
 
