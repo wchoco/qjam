@@ -32,7 +32,7 @@ def create_script(path: str, command: List[str],
     ])
 
     for m in command:
-        script.append(escape_string(m.replace("${}", "${seq_lib}")))
+        script.append(escape_string(m.replace("{}", "${seq_lib}")))
     create_file(path, script)
 
 
@@ -90,4 +90,7 @@ def main(args: argparse.Namespace):
 
         path = aquire_script_path(args.path, args.name)
         create_script(path, args.command, params, target)
-        exec_script(path)
+        if args.only_script:
+            print(path)
+        else:
+            exec_script(path)

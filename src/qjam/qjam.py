@@ -8,7 +8,7 @@ __date__ = "2018-05-31"
 
 import argparse
 from typing import List, Optional
-from qjam import q_array, q_clean, q_sub
+from qjam import q_array, q_clean, q_sub, q_watch
 
 
 def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
@@ -91,6 +91,11 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
         default="4",
         help="request the given memory"
     )
+    parser_sub.add_argument(
+        "--only_script",
+        action="store_true",
+        help="create script and not submit job"
+    )
 
     # array arguments
     parser_array = subparsers.add_parser(
@@ -156,6 +161,11 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
         default="4",
         help="request the given memory"
     )
+    parser_array.add_argument(
+        "--only_script",
+        action="store_true",
+        help="create script and not submit job"
+    )
 
     # remove arguments
     parser_rm = subparsers.add_parser(
@@ -173,6 +183,20 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
         help="remove files without check"
     )
     parser_rm.set_defaults(func=q_clean.main)
+
+    parser_watch = subparsers.add_parser(
+        "watch",
+        help="watch job status"
+    )
+    parser_watch.add_argument(
+        "-v", "--invert-match",
+        nargs="*",
+        type=str,
+        default=None,
+        dest="invert_match",
+        help="exclude watch target name"
+    )
+    parser_watch.set_defaults(func=q_watch.main)
 
     args = parser.parse_args()
     return args, parser
