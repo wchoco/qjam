@@ -8,7 +8,7 @@ __date__ = "2018-05-31"
 
 import argparse
 from typing import List, Optional
-from qjam import q_array, q_clean, q_sub
+from qjam import q_array, q_clean, q_sub, q_watch
 
 
 def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
@@ -173,6 +173,20 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
         help="remove files without check"
     )
     parser_rm.set_defaults(func=q_clean.main)
+
+    parser_watch = subparsers.add_parser(
+        "watch",
+        help="watch job status"
+    )
+    parser_watch.add_argument(
+        "-v", "--invert-match",
+        nargs="*",
+        type=str,
+        default=None,
+        dest="invert_match",
+        help="exclude watch target name"
+    )
+    parser_watch.set_defaults(func=q_watch.main)
 
     args = parser.parse_args()
     return args, parser
