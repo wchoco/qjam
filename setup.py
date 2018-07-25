@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="qjam",
-    version="0.0.1",
+    version="0.1.0",
     description="UGE qsub command wrapper",
     author="riku.okajima",
     author_email="riku.okajima@gmail.com",
