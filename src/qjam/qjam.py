@@ -91,6 +91,11 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
         default="4",
         help="request the given memory"
     )
+    parser_sub.add_argument(
+        "--only_script",
+        action="store_true",
+        help="create script and not submit job"
+    )
 
     # array arguments
     parser_array = subparsers.add_parser(
@@ -155,6 +160,11 @@ def get_args(argument: Optional[List[str]]=None) -> argparse.Namespace:
         type=str,
         default="4",
         help="request the given memory"
+    )
+    parser_array.add_argument(
+        "--only_script",
+        action="store_true",
+        help="create script and not submit job"
     )
 
     # remove arguments

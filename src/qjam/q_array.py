@@ -90,4 +90,7 @@ def main(args: argparse.Namespace):
 
         path = aquire_script_path(args.path, args.name)
         create_script(path, args.command, params, target)
-        exec_script(path)
+        if args.only_script:
+            print(path)
+        else:
+            exec_script(path)
